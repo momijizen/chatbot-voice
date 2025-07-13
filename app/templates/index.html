@@ -1,0 +1,27 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Q&A</title>
+</head>
+<body>
+  <h2>ถามคำถามกับ AI</h2>
+  <input type="text" id="question" placeholder="พิมพ์คำถาม..." style="width:300px;">
+  <button onclick="ask()">ถาม</button>
+  <p id="answer"></p>
+
+  <script>
+    async function ask() {
+      const q = document.getElementById("question").value;
+      const res = await fetch("/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: q })
+      });
+      const data = await res.json();
+      document.getElementById("answer").innerText = data.answer;
+    }
+  </script>
+</body>
+</html>
