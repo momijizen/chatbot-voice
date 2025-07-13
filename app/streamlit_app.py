@@ -8,7 +8,7 @@ from PyPDF2 import PdfReader
 from docx import Document
 
 st.set_page_config(page_title="AI Q&A Chat", layout="centered")
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 # === Load and Embed Documents ===
 @st.cache_resource
