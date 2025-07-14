@@ -6,7 +6,7 @@ import os
 from openai import OpenAI
 
 #configure openai
-api_key  = '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'
+api_key  = 'sk-pr'
 
 # สร้าง client สำหรับใช้งาน GPT
 client = OpenAI(api_key=api_key)
